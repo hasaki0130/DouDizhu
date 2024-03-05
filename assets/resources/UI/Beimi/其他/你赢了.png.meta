@@ -1,0 +1,162 @@
+{
+  "ver": "1.0.26",
+  "importer": "image",
+  "imported": true,
+  "uuid": "f2364b59-4c3b-4002-8e91-cb27a972a40f",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "你赢了": {
+      "ver": "1.0.3",
+      "uuid": "5d0441ed-1987-4dc6-9c44-439a83a4c58f",
+      "rawTextureUuid": "f2364b59-4c3b-4002-8e91-cb27a972a40f",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": 0,
+      "trimX": 111,
+      "trimY": 0,
+      "width": 332,
+      "height": 185,
+      "rawWidth": 553,
+      "rawHeight": 185,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {},
+      "importer": "*",
+      "imported": false,
+      "files": [],
+      "userData": {},
+      "displayName": "",
+      "id": "",
+      "name": ""
+    },
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "f2364b59-4c3b-4002-8e91-cb27a972a40f@6c48a",
+      "displayName": "你赢了",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "clamp-to-edge",
+        "wrapModeT": "clamp-to-edge",
+        "imageUuidOrDatabaseUri": "f2364b59-4c3b-4002-8e91-cb27a972a40f",
+        "isUuid": true,
+        "visible": false,
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "f2364b59-4c3b-4002-8e91-cb27a972a40f@f9941",
+      "displayName": "你赢了",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "userData": {
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0.5,
+        "offsetY": 0,
+        "trimX": 111,
+        "trimY": 0,
+        "width": 332,
+        "height": 185,
+        "rawWidth": 553,
+        "rawHeight": 185,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [
+            -166,
+            -92.5,
+            0,
+            166,
+            -92.5,
+            0,
+            -166,
+            92.5,
+            0,
+            166,
+            92.5,
+            0
+          ],
+          "indexes": [
+            0,
+            1,
+            2,
+            2,
+            1,
+            3
+          ],
+          "uv": [
+            111,
+            185,
+            443,
+            185,
+            111,
+            0,
+            443,
+            0
+          ],
+          "nuv": [
+            0.2007233273056058,
+            0,
+            0.8010849909584087,
+            0,
+            0.2007233273056058,
+            1,
+            0.8010849909584087,
+            1
+          ],
+          "minPos": [
+            -166,
+            -92.5,
+            0
+          ],
+          "maxPos": [
+            166,
+            92.5,
+            0
+          ]
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "f2364b59-4c3b-4002-8e91-cb27a972a40f@6c48a",
+        "atlasUuid": ""
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "sprite-frame",
+    "hasAlpha": true,
+    "fixAlphaTransparencyArtifacts": false,
+    "redirect": "f2364b59-4c3b-4002-8e91-cb27a972a40f@f9941"
+  }
+}

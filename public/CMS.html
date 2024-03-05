@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>後台管理系統</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"
+        integrity="sha512-qzgd5cYSZcosqpzpn7zF2ZId8f/8CHmFKZ8j7mU4OUXTNRd5g+ZHBPsgKEwoqxCtdQvExE5LprwwPAgoicguNg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/css/theme.default.min.css"
+        integrity="sha512-wghhOJkjQX0Lh3NSWvNKeZ0ZpNn+SPVXX1Qyc9OCaogADktxrBiBdKGDoqVUOyhStvMBmJQ8ZdMHiR3wuEq8+w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="./CMS-js/CMS_users.js"></script>
+    <script src="./CMS-js/CMS_game_playway.js"></script>
+    <script src="./CMS-js/CMS_money.js"></script>
+    <script src="./CMS-js/CMS_feedback.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: margin-left 0.5s;
+        }
+
+        #sidebar {
+            background-color: #333;
+            color: #fff;
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            left: -250px;
+            top: 0;
+            padding-top: 20px;
+            transition: left 0.3s ease;
+        }
+
+        #sidebar-toggle {
+            position: fixed;
+            left: 0;
+            top: 20px;
+            padding: 10px;
+            cursor: pointer;
+            color: #fff;
+            background-color: #333;
+            border: none;
+            transition: left 0.3s ease;
+        }
+
+        #content {
+            margin-left: 0;
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        ul li:hover {
+            background-color: #555;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .tablesorter th,
+        td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            word-break: break-all;
+            white-space: pre-wrap;
+        }
+
+        .tablesorter th {
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="sidebar-toggle">&#9776; 選單</button>
+    <div id="sidebar">
+        <ul>
+            <li id="users">玩家資料</li>
+            <li id="game_playway">遊戲資料</li>
+            <li id="money">儲值資料</li>
+            <li id="feedback">意見反饋</li>
+        </ul>
+    </div>
+    <div id="content" style="margin-top: 20px;">
+        <h1>歡迎來到後台管理系統</h1>
+        <div id="users-content" style="display: none;">
+            <button id="add-user">新增</button>
+            <table id="users-table" class="tablesorter">
+                <thead>
+                    <tr>
+                        <th>玩家名稱</th>
+                        <th>玩家信箱</th>
+                        <th>玩家金錢</th>
+                        <th>創建時間</th>
+                        <th>修改/刪除</th>
+                    </tr>
+                </thead>
+                <tr id="add-user-tr">
+                </tr>
+                <tbody id="users-tbody">
+
+                </tbody>
+            </table>
+        </div>
+        <div id="game_playway-content" style="display: none;">
+            <button id="add-game_playway">新增</button>
+            <table id="game_playway-table" class="tablesorter">
+                <thead>
+                    <tr>
+                        <th>遊戲ID</th>
+                        <th>地主玩家</th>
+                        <th>地主獲得金額</th>
+                        <th>農民1玩家</th>
+                        <th>農民1獲得金額</th>
+                        <th>農民2玩家</th>
+                        <th>農民2獲得金額</th>
+                        <th>遊戲結束時間</th>
+                        <th>修改/刪除</th>
+                    </tr>
+                </thead>
+                <tr id="add-game_playway-tr">
+                </tr>
+                <tbody id="game_playway-tbody">
+
+                </tbody>
+            </table>
+        </div>
+        <div id="money-content" style="display: none;">
+            <button id="add-money">新增</button>
+            <table id="money-table" class="tablesorter">
+                <thead>
+                    <tr>
+                        <th>交易編號ID</th>
+                        <th>玩家ID</th>
+                        <th>儲值金額</th>
+                        <th>儲值時間</th>
+                        <th>修改/刪除</th>
+                    </tr>
+                </thead>
+                <tr id="add-money-tr">
+                </tr>
+                <tbody id="money-tbody">
+
+                </tbody>
+            </table>
+        </div>
+        <div id="feedback-content" style="display: none;">
+            <table id="feedback-table" class="tablesorter">
+                <thead>
+                    <tr>
+                        <th width="20%">玩家帳號</th>
+                        <th width="50%">留言/回應</th>
+                        <th width="30%">日期</th>
+                    </tr>
+                </thead>
+                <tbody id="feedback-tbody">
+                    <tr>
+                        <td rowspan="2">useraccount</td>
+                        <td>留言1</td>
+                        <td>留言1時間</td>
+                    </tr>
+
+                    <tr class="tablesorter-childRow">
+                        <td>
+                            <p>回應1</p><br><button onclick="edit_feedback(this)">回覆</button>
+                        </td>
+                        <td>回應1時間</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Andy</td>
+                        <td>留言2</td>
+                        <td>留言2時間</td>
+                    </tr>
+
+                    <tr class="tablesorter-childRow">
+                        <td>回應2</td>
+                        <td>回應2時間</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            $("#sidebar-toggle").click(function () {
+                $("#sidebar").css("left", function (index, value) {
+                    return value === "0px" ? "-250px" : "0px";
+                });
+                $("#sidebar-toggle").css("left", function (index, value) {
+                    return value === "250px" ? "0px" : "250px";
+                });
+                $("#content").css("margin-left", function (index, value) {
+                    return value === "250px" ? "0px" : "250px";
+                });
+            });
+
+            $("#users").click(function () {
+                showContent("users-content");
+            });
+            $("#game_playway").click(function () {
+                showContent("game_playway-content");
+            });
+            $("#money").click(function () {
+                showContent("money-content");
+            });
+            $("#feedback").click(function () {
+                showContent("feedback-content");
+            });
+
+            function showContent(contentId) {
+                $("#content > div").hide();
+                $("#" + contentId).show();
+            }
+            $("#add-user").click(() => {
+                $("#add-user-tr").empty();
+                $("#add-user-tr").append(`<td><input type="text" id="add-user-name" ></td>
+                    <td><input type="text" id="add-user-email" ></td>
+                    <td><input type="number" id="add-user-money" ></td>
+                    <td>創建時間</td>
+                    <td><button onclick="add_user_confirm()" >確定</button><button  onclick="add_user_cancel()">取消</button></td>`);
+
+            })
+
+            $("#add-game_playway").click(() => {
+                $("#add-game_playway-tr").empty();
+                $("#add-game_playway-tr").append(`<td>遊戲ID</td>
+                    <td><input type="text" id="add-game_playway-banker-id" ></td>
+                    <td><input type="number" id="add-game_playway-banker-money" ></td>
+                    <td><input type="text" id="add-game_playway-player1-id" ></td>
+                    <td><input type="number" id="add-game_playway-player1-money" ></td>
+                    <td><input type="text" id="add-game_playway-player2-id" ></td>
+                    <td><input type="number" id="add-game_playway-player2-money" ></td>
+                    <td>創建時間</td>
+                    <td><button onclick="add_game_playway_confirm()" >確定</button><button  onclick="add_game_playway_cancel()">取消</button></td>`);
+
+            })
+
+            $("#add-money").click(() => {
+                $("#add-money-tr").empty();
+                $("#add-money-tr").append(`<td>交易編號ID</td>
+                    <td><input type="text" id="add-money-user_id" ></td>
+                    <td><input type="number" id="add-money-money" ></td>
+                    <td>儲值時間</td>
+                    <td><button onclick="add_money_confirm()" >確定</button><button  onclick="add_money_cancel()">取消</button></td>`);
+
+            })
+
+            $("#users-table").tablesorter();
+            $("#game_playway-table").tablesorter();
+            $("#money-table").tablesorter();
+            $("#feedback-table").tablesorter();
+            $('#users').click();
+            refresh_userUI();
+            refresh_game_playwayUI();
+            refresh_moneyUI();
+            refresh_feedbackUI();
+        });
+        
+
+
+    </script>
+</body>
+
+</html>

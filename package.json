@@ -1,0 +1,32 @@
+{
+  "name": "ddz",
+  "uuid": "995a703d-41e4-4fc7-b2f3-9db0add55d71",
+  "creator": {
+    "version": "3.8.1"
+  },
+  "dependencies": {
+    "@types/firebase": "^3.2.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "firebase": "^8.10.0",
+    "firebase-admin": "^12.0.0",
+    "mysql": "^2.18.1",
+    "nodejs-websocket": "^1.7.2",
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2",
+    "uuid-v4": "^0.1.0"
+  },
+  "description": "12345678\r https://www.edrawmind.com/online/map.html?obj=ws302931135_vIY97/Personal/%E5%A4%A7%E5%B0%88.emmx",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

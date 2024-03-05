@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>form測試從前端帶資料到後端</title>
+	</head>
+	<body>
+		<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+
+        
+            // 获取表单数据，測試用先將字串帶入
+            var formData = {// 定义formData对象，用于存储要发送的数据
+                user_id: "123",// 用户ID
+                money: "100",// 金额
+                date: "2024-01-01 09:00:00"// 日期              
+            };
+            console.log("post")// 在控制台打印日志
+            
+            // 发送Ajax请求
+            $.ajax({
+                type: 'POST',// 设置请求类型为POST
+                url: '/ecpayCheckout',// 请求的URL
+                contentType: 'application/json; charset=UTF-8',// 设置内容类型
+                data: JSON.stringify(formData),// 将formData对象转换为JSON字符串
+                success: function (response) {// 请求成功时的回调函数
+                    // 处理成功的响应
+                    var newWindow = window.open("", "_self");// 在当前窗口打开新页面
+                    newWindow.document.write(response);// 将响应写入新页面
+                    newWindow.document.close();// 关闭文档流
+                    console.log(response);// 在控制台打印响应
+                },
+                error: function (error) {// 请求失败时的回调函数
+                    // 处理错误响应
+                    console.error(error);// 在控制台打印错误信息
+                }
+            });
+        </script>
+	</body>
+</html>

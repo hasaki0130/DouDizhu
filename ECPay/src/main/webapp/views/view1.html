@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>版型放這邊，關鍵在於設計哪些參數，帶回去給W13 VIEW!!!
+		<meta charset='UTF-8'>
+		<title>Leo RICH Calc</title>
+	</head>
+	<body>
+		<h1>Leo RICH</h1><hr />
+		<form action='W12'>
+			<input name='x' value='%s'/> 
+			+
+			<input name='y' value='%s'/> 
+			<input type='submit' value='='/>
+			<span>%s</span>
+		</form>	
+	</body>
+</html>
+<!--使用變數%s，擺hashmap的key中，(目前有3個%s)-->
+<!--因為會認%s，上面都不可以寫%s，寫在註解裡面也不行 -->
+
+<input name='x' value='%s'/ > <!--1個%s -->
+<input name='y' value='%s'/> <!--2個%s -->
+<span></span> <!--3個%s -->

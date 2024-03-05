@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>版型view3 value 0 1 2 3
+		<meta charset='UTF-8'>
+		<title>Leo RICH V3 Calc</title>
+	</head>
+	<body>
+		<h1 style="background-color: goldenrod;">Leo RICH V3</h1><hr />
+		<form action='W12V2'><!--終於找到問題點了! submit action是從W12V2這邊!!-->
+			<input name='x' value='%s'/> 
+			<select name="op">
+				<option value="0" %s>+</option>
+				<option value="1" %s>-</option>
+				<option value="2" %s>*</option>
+				<option value="3" %s>/</option>
+			</select>
+			<input name='y' value='%s'/> 
+			<input type='submit' value='='/>
+			<span>%s</span>
+		</form>	
+	</body>
+</html>
+<!--再加上4個變數%s給+-*/使用，(目前共有7個%s)-->

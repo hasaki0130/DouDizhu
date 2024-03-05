@@ -1,0 +1,134 @@
+{
+  "ver": "1.0.26",
+  "importer": "image",
+  "imported": true,
+  "uuid": "890d25f9-4153-489b-a395-6347c37af4cf",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "890d25f9-4153-489b-a395-6347c37af4cf@6c48a",
+      "displayName": "麻将牌",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "clamp-to-edge",
+        "wrapModeT": "clamp-to-edge",
+        "imageUuidOrDatabaseUri": "890d25f9-4153-489b-a395-6347c37af4cf",
+        "isUuid": true,
+        "visible": false,
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "890d25f9-4153-489b-a395-6347c37af4cf@f9941",
+      "displayName": "麻将牌",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "userData": {
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": -1.5,
+        "trimX": 2,
+        "trimY": 5,
+        "width": 74,
+        "height": 111,
+        "rawWidth": 78,
+        "rawHeight": 118,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [
+            -37,
+            -55.5,
+            0,
+            37,
+            -55.5,
+            0,
+            -37,
+            55.5,
+            0,
+            37,
+            55.5,
+            0
+          ],
+          "indexes": [
+            0,
+            1,
+            2,
+            2,
+            1,
+            3
+          ],
+          "uv": [
+            2,
+            113,
+            76,
+            113,
+            2,
+            2,
+            76,
+            2
+          ],
+          "nuv": [
+            0.02564102564102564,
+            0.01694915254237288,
+            0.9743589743589743,
+            0.01694915254237288,
+            0.02564102564102564,
+            0.9576271186440678,
+            0.9743589743589743,
+            0.9576271186440678
+          ],
+          "minPos": [
+            -37,
+            -55.5,
+            0
+          ],
+          "maxPos": [
+            37,
+            55.5,
+            0
+          ]
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "890d25f9-4153-489b-a395-6347c37af4cf@6c48a",
+        "atlasUuid": ""
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "sprite-frame",
+    "hasAlpha": true,
+    "fixAlphaTransparencyArtifacts": false,
+    "redirect": "890d25f9-4153-489b-a395-6347c37af4cf@f9941"
+  }
+}

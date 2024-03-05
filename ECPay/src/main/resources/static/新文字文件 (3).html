@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        var formData = {
+            name: "a",
+            age: "15",
+            location: "abc"
+        }
+        $.ajax({
+                type: 'POST',
+                url: '/createUser',
+                contentType: 'application/json; charset=UTF-8',
+                data: JSON.stringify(formData),
+                success: function (response) {
+                    // 处理成功的响应
+                    var newWindow = window.open("", "_self");
+                    newWindow.document.write(response);
+                    newWindow.document.close();
+                    console.log(response);
+                },
+                error: function (error) {
+                    // 处理错误响应
+
+                    console.error(error);
+                }
+            });
+    </script>
+</body>
+</html>

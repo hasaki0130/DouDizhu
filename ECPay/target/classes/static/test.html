@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跳轉綠界</title>
+</head>
+<body>
+<div id="div" align="center"> 
+	<br><br><br>	  
+    <button id="myButton" style="background-color: greenyellow;">點擊我去綠界付款</button>
+</div>
+
+<script>
+	// 获取ID为'myButton'的按钮元素   
+    var button = document.getElementById("myButton");
+
+    // 为按钮添加点击事件监听器
+    button.addEventListener("click", function() {
+		
+		//使用AJAX技术
+       	//1.创建新的XMLHttpRequest对象: ：这是AJAX最核心的组成部分。例如，var xhr = new XMLHttpRequest();这行代码创建了一个新的XMLHttpRequest对象，用于与服务器进行异步通信。
+        var xhr = new XMLHttpRequest();
+        //2.发送异步请求：使用xhr.open()方法配置请求。在您的代码中，xhr.open("POST", "/ecpayCheckout", true);这行表示发送一个异步的POST请求到/ecpayCheckout路径。其中，true参数表示请求是异步的。
+        xhr.open("POST", "/ecpayCheckout", true);
+       	//3.设置请求头：通过xhr.setRequestHeader()设置HTTP请求的头部。例如，xhr.setRequestHeader("Content-Type", "application/json");这行代码设置了请求头，表明发送的数据类型是JSON。
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+		//4.发送请求：使用xhr.send()方法发送请求。在您的代码中，通过xhr.send(JSON.stringify(data));发送一个JSON格式的数据。
+        // 创建一个空的JSON对象
+        var data = {};
+        // 发送JSON对象，将其转化为字符串
+        xhr.send(JSON.stringify(data));
+
+		//5.处理响应：使用xhr.onreadystatechange事件监听器来处理来自服务器的响应。例如，在您的代码中，xhr.onreadystatechange = function() { ... }部分定义了当请求状态改变时要执行的代码。
+        // 当XHR对象状态改变时执行此函数
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {// 检查请求是否完成（readyState 4表示完成）
+                if (xhr.status === 200) {// 检查HTTP响应状态码是否为200（表示成功）
+                
+                	// 在当前窗口打开新页面，并写入响应文本
+                    var newWindow = window.open("","_self");
+                    newWindow.document.write(xhr.responseText);
+                    newWindow.document.close();
+                    
+                    // 在控制台打印成功日志
+                    console.log("POST 请求成功:" + xhr.responseText);
+                } else {
+                    // 如果请求失败，打印错误日志到控制台
+                    console.error("POST 请求失败，状态码:", xhr.status);
+                }
+            }
+        };
+        
+        //xhr.open("GET", "server", true);
+		//xhr.send();
+    });
+//以上这段代码的主要作用是：当用户点击指定的按钮时，它会发送一个POST请求到服务器的/ecpayCheckout路径。如果请求成功（状态码为200），它会在当前页面打开一个新窗口，并显示服务器返回的响应内容。如果请求失败（状态码不是200），它会在控制台打印一个错误消息。这种模式常用于处理如在线支付或数据提交等交互式Web应用程序。
+</script>
+
+</body>
+</html>
